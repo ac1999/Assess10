@@ -13,23 +13,41 @@
 	}
 	echo "Connected successfully";
 ?>
+<style>
+table {
+	border:1px solid black;
+	border-collapse: collapse;
+}
+th{
+	text.align:left;
+	border:1px solid black;
+}
+tr{
+	text.align:left;
+	border:1px solid black;
+}
+td{
+	text.align:left;
+	border:1px solid black;
+}
+</style>
 </head>
 
 <body>
-<h1>Book store products</h1>
+<h1>Boook store products</h1>
 
 <?php
 // Query Database
-	$sql = "select bookISBN, bookTitle, LEFT(bookDescription , 100) AS bookDescriptionShort, bookPublisher, bookPublishDate, bookRRP
+	$sql = "select bookISBN, bookTitle, LEFT(bookDescription , 40) AS bookDescriptionShort, bookPublisher, bookPublishDate, bookRRP
 			from tblbooks
 			order by bookISBN asc";
 	$result = mysqli_query($connection, $sql);
 //output data from each row
 if(mysqli_num_rows($result) > 0){
-	echo "<table style=\"border:1px solid black; border-collapse: collapse;\">";
-	echo "<tr style=\"border:1px solid black;\"><th  style=\"border:1px solid black;\">Title</th><th style=\"border:1px solid black;\">Description</th><th style=\"border:1px solid black;\">Publisher</th><th style=\"border:1px solid black;\">Published On</th><th>RRP</th style=\"border:1px solid black;\"><th style=\"border:1px solid black;\">ISBN</th></tr>";
+	echo "<table>";
+	echo "<tr><th>Title</th><th>Description</th><th>Publisher</th><th>Published On</th><th>RRP</th><th>ISBN</th></tr>";
 	while($row=mysqli_fetch_assoc($result)){
-		echo"<tr style=\"border:1px solid black;\"><td style=\"border:1px solid black;\">$row[bookTitle]</td><td style=\"border:1px solid black;\">$row[bookDescriptionShort]</td><td  style=\"border:1px solid black;\">$row[bookPublisher]</td><td>$row[bookPublishDate]</td><td  style=\"border:1px solid black;\">$row[bookRRP]</td><td>$row[bookISBN]</td></tr>";
+		echo"<tr><td>$row[bookTitle]</td><td>$row[bookDescriptionShort]...</td><td>$row[bookPublisher]</td><td>$row[bookPublishDate]</td><td>$row[bookRRP]</td><td>$row[bookISBN]</td></tr>";
 	}
 	echo "</table>";
 }
