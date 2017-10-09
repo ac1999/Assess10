@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<h1>Boook store products</h1>
+<h1>Book store products</h1>
 
 <?php
 // Query Database
