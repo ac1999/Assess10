@@ -25,11 +25,20 @@
 	$desc1;
 	$desc2;
 	$desc3;
-	$sql = "select bookTitle, LEFT(bookDescription, 100) as bookDescriptionShort from tblbooks order by bookISBN asc";
+	$sql = "select bookTitle, LEFT(bookDescription, 100) as bookDescriptionShort, bookISBN from tblbooks order by bookISBN asc";
 	$result = mysqli_query($connection, $sql);
 	if(mysqli_num_rows($result) > 0){
 		echo "<table class=\"maintable\">";
 		while($row=mysqli_fetch_assoc($result)){
+			if($counter == 3) {
+				echo"</tr>";
+				$counter = 0;
+				echo"<tr>";
+				echo"<th id=\"book\">$desc1 ...</th>";
+				echo"<th id=\"book\">$desc2 ...</th>";
+				echo"<th id=\"book\">$desc3 ...</th>";
+				echo"</tr>";
+			}
 			if($counter == 0) {
 				echo"<tr>";
 				$desc1 = $row[bookDescriptionShort];
@@ -40,17 +49,8 @@
 			if($counter == 2) {
 				$desc3 = $row[bookDescriptionShort];
 			}
-			echo"<th id=\"book\"><a href=\"#\"><h2>$row[bookTitle]</h2></th>";
+			echo"<th id=\"book\"><a href=\"bookdetails.php?isbn=$row[bookISBN]\"><h2>$row[bookTitle]</h2></th>";
 			$counter++;
-			if($counter == 3) {
-				echo"</tr>";
-				$counter = 0;
-				echo"<tr>";
-				echo"<th id=\"book\">$desc1 ...</th>";
-				echo"<th id=\"book\">$desc2 ...</th>";
-				echo"<th id=\"book\">$desc3 ...</th>";
-				echo"</tr>";
-			}
 		}
 		echo "</table>";
 	}
