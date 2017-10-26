@@ -30,15 +30,6 @@
 	if(mysqli_num_rows($result) > 0){
 		echo "<table class=\"maintable\">";
 		while($row=mysqli_fetch_assoc($result)){
-			if($counter == 3) {
-				echo"</tr>";
-				$counter = 0;
-				echo"<tr>";
-				echo"<th id=\"book\">$desc1 ...</th>";
-				echo"<th id=\"book\">$desc2 ...</th>";
-				echo"<th id=\"book\">$desc3 ...</th>";
-				echo"</tr>";
-			}
 			if($counter == 0) {
 				echo"<tr>";
 				$desc1 = $row[bookDescriptionShort];
@@ -51,6 +42,15 @@
 			}
 			echo"<th id=\"book\"><a href=\"#\"><h2>$row[bookTitle]</h2></th>";
 			$counter++;
+			if($counter == 3) {
+				echo"</tr>";
+				$counter = 0;
+				echo"<tr>";
+				echo"<th id=\"book\">$desc1 ...</th>";
+				echo"<th id=\"book\">$desc2 ...</th>";
+				echo"<th id=\"book\">$desc3 ...</th>";
+				echo"</tr>";
+			}
 		}
 		echo "</table>";
 	}
