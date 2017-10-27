@@ -60,6 +60,7 @@ h1 {
 	text-align:center;
 	font-size:50px;
 	text-transform:uppercase;
+	font-family:Verdana, Geneva, sans-serif;
 }
 #book {
 	border:solid thin #780116;
@@ -73,6 +74,7 @@ a {
 	color:#000000;
 	text-decoration:none;
 	font-style:normal;
+	font-family:Verdana, Geneva, sans-serif;
 }
 a:hover {
 	color:#C32F27;
