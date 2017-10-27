@@ -28,7 +28,7 @@
 				echo "<h1>$row[bookTitle]</h1>";
 				echo "<h4>Description</h4>";
 				echo "<p>$row[bookDescription]</p>";
-				echo "<p>Publisher: $row[bookPublisher]</p>";
+				echo "<p>Publisher: <a href=\"publisherdetails.php?pub=$row[bookPublisher]\">$row[bookPublisher]</a></p>";
 				echo "<p>Published on: $row[bookPublishDate]</p>";
 				echo "<p>Edition: $row[bookEdition]</p>";
 				echo "<p>Stock: $row[bookInventory]</p>";
