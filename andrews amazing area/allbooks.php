@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Book Details</title>
+<title>All Books</title>
 </head>
 
 <body>
-<img id="home" src="images/home.png" alt="Home Button" width="60px" height="60px" align="left">
-<img id="exit" src="images/x.png" alt="Exit Button" width="60px" height="60px" align="right">
-<?php
+<a href="index.html"><img id="home" src="images/home.png" alt="Home Button" width="60px" height="60px" align="left"></a>
+
+<h1>All Books</h1>
+<?PHP
 // Setup variables
 	include "sqldata.php";
 // Create connection
@@ -18,63 +19,58 @@
 		die("Connection failed: " .mysqli_connect_error());
 	}
 ?>
+
 <?php
-	if(isset($_GET['isbn'])) {
-		$isbn = $_GET['isbn'];
-		$sql = "select bookRRP, bookPages, bookEdition, bookInventory, bookPublishDate, bookPublisher, bookISBN, bookTitle, bookDescription from tblbooks where bookISBN = $isbn";
-		$result = mysqli_query($connection, $sql);
-		if(mysqli_num_rows($result) > 0){
-			while($row=mysqli_fetch_assoc($result)){
-				echo "<h1>$row[bookTitle]</h1>";
-				echo "<h4>Description</h4>";
-				echo "<p>$row[bookDescription]</p>";
-				echo "<p>Publisher: <a href=\"publisherdetails.php?pub=$row[bookPublisher]\">$row[bookPublisher]</a></p>";
+	$counter = 0;
+	$desc1;
+	$desc2;
+	$desc3;
+	$sql = "select bookTitle, LEFT(bookDescription, 100) as bookDescriptionShort, bookISBN from tblbooks order by bookISBN asc";
+	$result = mysqli_query($connection, $sql);
+	if(mysqli_num_rows($result) > 0){
+		echo "<table class=\"maintable\">";
+		while($row=mysqli_fetch_assoc($result)){
+			if($counter == 3) {
+				echo"</tr>";
+				$counter = 0;
+				echo"<tr>";
+				echo"<th id=\"book\">$desc1 ...</th>";
+				echo"<th id=\"book\">$desc2 ...</th>";
+				echo"<th id=\"book\">$desc3 ...</th>";
+				echo"</tr>";
 			}
-		}
-		else{
-			echo "<h1>No book found with that isbn</h1>";
-		}
-		$sql2 = "select authorFName, authorLName from tblauthors where authorId IN(select authorID from tblbookauthors where $isbn = tblbookauthors.bookISBN)";
-		$result2 = mysqli_query($connection, $sql2);
-			if(mysqli_num_rows($result2) > 0){
-				echo"<p>Author: ";
-				while($row=mysqli_fetch_assoc($result2)){
-					if ($counter > 0) {
-						echo ", ";
-					}
-					echo "$row[authorFName] $row[authorLName]";
-					$counter++;
-				}
-				echo"</p>";
+			if($counter == 0) {
+				echo"<tr>";
+				$desc1 = $row[bookDescriptionShort];
 			}
-		$sql = "select bookRRP, bookPages, bookEdition, bookInventory, bookPublishDate, bookPublisher, bookISBN, bookTitle, bookDescription from tblbooks where bookISBN = $isbn";
-		$result = mysqli_query($connection, $sql);
-		if(mysqli_num_rows($result) > 0){
-			while($row=mysqli_fetch_assoc($result)){
-				echo "<p>Published on: $row[bookPublishDate]</p>";
-				echo "<p>Edition: $row[bookEdition]</p>";
-				echo "<p>Stock: $row[bookInventory]</p>";
-				echo "<p>Pages: $row[bookPages]</p>";
-				echo "<p>ISBN: $row[bookISBN]</p>";
-				echo "<p>Price: $$row[bookRRP]</p>";
+			if($counter == 1) {
+				$desc2 = $row[bookDescriptionShort];
 			}
+			if($counter == 2) {
+				$desc3 = $row[bookDescriptionShort];
+			}
+			echo"<th id=\"book\"><a href=\"bookdetails.php?isbn=$row[bookISBN]\"><h2>$row[bookTitle]</h2></th>";
+			$counter++;
 		}
-		else{
-			echo "<h1>No book found with that isbn</h1>";
-		}
+		echo "</table>";
 	}
 ?>
-</body>
-
 <style>
 h1 {
 	text-align:center;
 }
-#Tab {
-	border:solid thin;	
-}
-#Purchase {
-	text-align:center;
+#book {
 	border:solid thin;
+	width: 33%;
+}
+.maintable {
+	table-layout: fixed;
+	width: 100%;
+}
+a {
+	color:#000000;
+}
+table {
+	margin:auto;
 }
 </style>
