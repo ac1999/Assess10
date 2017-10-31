@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>Bookstore</title>
+
+<style>
+
+#wrapper {
+	width:940px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:20px;
+	padding-right:20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #030;
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+	padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+	background-color:#090;
+}
+
+img#phpimg {
+	float:right;
+	margin:5px;
+	border:solid #FFF 5px;
+}
+
+img#dev {
+	float:right;
+	margin:5px;
+	border:solid #FFF 5px;
+}
+
+aside {
+	float:right;
+	background-color:#030;
+	width:330px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right:2px;
+	margin-left:2px;
+	border-radius:5px;
+	padding:2px;
+}
+
+article#aside1,article#aside2,article#aside3 {
+	background-color:#FFF;
+	border-radius:5px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-bottom:5px;
+	padding:1px;
+
+}
+
+h3#uwshops {
+	color:#FFF;
+	margin:5px;
+}
+
+footer {
+	background-color:#030;
+	color:#FFF;
+	text-align:center;
+	padding:1px;
+}
+
+main {
+	width:600px;
+}
+
+h2,h3,h5 {
+	font-family: 'Love Ya Like A Sister', cursive;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+}
+
+li {
+	font-family: 'Roboto', sans-serif;
+}
+</style>
+
+</head>
+
+<body>
+<div id="wrapper">
+
+<header>
+<img src="images/bookss.png" width="940" height="138" alt="Books"/>
+</header>
+
+<nav>
+<ul>
+    <li><a href="allbooks.php">All Books</a></li>
+    <li><a href="#">Categories</a></li>
+    <li><a href="#">Publishers</a></li>
+    <li><a href="#">Authors</a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+</ul>
+</nav>
+
+<aside>
+
+<h3 id="uwshops">Quick Reads</h3>
+
+<article id="aside1">
+<h5 id="asidetitle">SQL Queries for Mere Mortals: A Hands-On Guide to Data Manipulation in SQL<br>21/8/2000</h5>
+<p>To the people who are accomplished in its use, Structured Query Language(SQL) is a highly capable...<a href="bookdetails.php?isbn=0201433362">Check it out here</a></p>
+</article>
+
+<article id="aside2">
+<h5>Don't Make Me Think<br>18/8/2005</h5>
+<p>Usability design is one of the most important--yet often least attractive--tasks for a Web Development...<a href="bookdetails.php?isbn=0321344758">Check it out here</a></p>
+</article>
+
+<article id="aside3">
+<h5>Programming PHP<br>1/4/2006</h5>
+<p>Programming PHP, 2nd Edition, is the authoritative guide to PHP 5 and is filled with the unique... <a href="bookdetails.php?isbn=0596006810">Check it out here</a></p>
+</article>
+</aside>
+
+<main>
+<article id="content1">
+<h2>Learn PHP!!!</h2>
+<p>Browse our database and find the PHP programming book for you!</p>
+</article>
+
+<article id="content2">
+<h3>What is PHP?</h3>
+<img id="phpimg" src="images/phplogo.png" alt="PHP Logo"/ height="120" width="180">
+<p>PHP is a server-side scripting language designed primarily for web development but also used as a general-purpose programming language. Originally created by Rasmus Lerdorf in 1994, the PHP reference implementation is now produced by The PHP Development Team. PHP originally stood for Personal Home Page, but it now stands for the recursive acronym PHP: Hypertext Preprocessor.</p>
+
+<p>Get reading, We offer a bountiful array of resources for all your PHP needs</p>
+</article>
+
+<article id="content3">
+<h3>Who are we?</h3>
+<img id="dev" src="images/devs.jpg" alt="Superhero Code Languages"/ height="140" width="170">
+<p>We are a team of three website developers tasked with creating the ultimate website for browsing and discovering learning resources.</p>
+
+<p>We hope you enjoy our website and it helps you to discover your passion for programming PHP</p>
+
+<p>This is our final task for Year 12 IPT, we enjoyed working as a group to produce a final product and we wish all visitors a great day.</p>
+</article>
+</main>
+
+<footer>
+<p>Copyright Sean Florance, Andrew Crouch, Logan Morrison</p>
+</footer>
+
+</div>
+</body>
+</html>
