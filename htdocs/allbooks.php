@@ -61,6 +61,21 @@
 				echo"<th id=\"bookdesc\">$desc2 ...</th>";
 				echo"<th id=\"bookdesc\">$desc3 ...</th>";
 				echo"</tr>";
+				$desc1 = "";
+				$desc2 = "";
+				$desc3 = "";
+			}
+		}
+		echo "</tr>";
+		if($desc1 != ""){
+			echo"<tr>";
+			echo"<th id=\"bookdesc\">$desc1 ...</th>";
+			if($desc2 == ""){
+				echo "</tr>";
+			}
+			else{
+				echo"<th id=\"bookdesc\">$desc2 ...</th>";
+				echo"</tr>";
 			}
 		}
 		echo "</table>";
