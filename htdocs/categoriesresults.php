@@ -38,7 +38,7 @@ if(isset($_GET['cat'])) {
 	$desc2;
 	$desc3;
 	$cat = $_GET['cat'];
-	$sql = "select bookTitle, LEFT(bookDescription, 100) as bookDescriptionShort from tblbooks where bookISBN in(select bookISBN from tblbookcategory where categoryId = $cat) order by bookISBN asc";
+	$sql = "select bookTitle, LEFT(bookDescription, 100) as bookDescriptionShort, bookISBN from tblbooks where bookISBN in(select bookISBN from tblbookcategory where categoryId = $cat) order by bookISBN asc";
 	$result = mysqli_query($connection, $sql);
 	if(mysqli_num_rows($result) > 0){
 		echo "<table class=\"maintable\">";
