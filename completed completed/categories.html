@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Publisher Details</title>
+</head>
+
+<body>
+<div id="wrapper">
+<header>
+<img src="images/categories.png" width="940" height="138" alt="Books"/>
+</header>
+<nav>
+<ul id="nav">
+    <li><a href="bookstore.html">Home</a></li>
+	<li><a href="#">All Books</a></li>
+    <li><a href="#">Categories</a></li>
+    <li><a href="allpublishers.php">Publishers</a></li>
+    <li><a href="allauthors.php">Authors</a></li>
+    <li><a href="#"></a></li>
+</ul>
+</nav>
+<table class="maintable">
+<tr>
+<th><a href="categoriesresults.php?cat=1"/>PHP</th>
+<th><a href="categoriesresults.php?cat=2"/>MySQL</th>
+</tr>
+<tr>
+<th><a href="categoriesresults.php?cat=3"/>Web Usability</th>
+<th><a href="categoriesresults.php?cat=4"/>SQL</th>
+</tr>
+<tr>
+<th><a href="categoriesresults.php?cat=5"/>ASP.NET</th>
+<th><a href="categoriesresults.php?cat=6"/>Regular Expressions</th>
+</tr>
+<tr>
+<th><a href="categoriesresults.php?cat=7"/>Web Services</th>
+<th><a href="categoriesresults.php?cat="/>Morse Code</th>
+</tr>
+</div>
+</body>
+</html>
+<style>
+h1 {
+	text-align:center;
+}
+a {
+	color:#000;
+}
+#wrapper {
+	width:940px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:20px;
+	padding-right:20px;
+	background-image:url(images/background.png);
+}
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #030;
+}
+li {
+    float:left;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+	padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+	background-color:#090;
+}
+th {
+	width: 30%;
+	border-radus: 5px;
+	background-color: white;
+	padding: 5px;
+	border-style: solid;
+}
+table {
+	table-layout: fixed;
+	width: 100%;
+}
+</style>
